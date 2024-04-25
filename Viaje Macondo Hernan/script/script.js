@@ -76,10 +76,43 @@ let newWidth =originWidth * reduction
 alert(`newHeight ${newHeight} newLong ${newLong} newWidth ${newWidth}`)
 }
 
-// Issue Wifi 
-let decryptBinary = ()=>{
+// Issue Wifi  
+//WiFi password required
+let descryptBinary = ()=>{
+    let password = "01110010_01101001_01110111_01101001".split("_")
 
+    // Chage binay to decimal
+    let decimal = password.map(binay => parseInt(binay,2))
+    console.log(decimal)
+    
+    // Change binay to character
+     let character = decimal.map(function(decimal) {
+        return String.fromCharCode(decimal)
+     })
+    
+     let final_convert = character.join("")
+    
+    alert(`The password is ${final_convert}`)
+    budget-= 50000
 }
-ReduceSuitCase()
 
-// user =  prompt("Welcome to the Aeroport Wifi please ")
+
+
+// Convert vocal 
+let convertVocal = (word)=>{
+    let expresionRegular = /[a-zA-Z]+/.test(word)  
+
+    if(expresionRegular){
+        let vocal = word.replace(/[aeou]/gi,"i")
+        alert(vocal)
+    }
+    else {
+        alert("Enter a valid phrase")
+    }
+}
+
+
+let word = prompt("Say the message you want to change")
+let newWord = word.replace(/[aeou]/gi,"i")
+alert(newWord)
+
