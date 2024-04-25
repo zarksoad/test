@@ -96,10 +96,8 @@ let descryptBinary = ()=>{
     budget-= 50000
 }
 
-
-
 // Convert vocal 
-let convertVocal = (word)=>{
+let convertVocal = word=>{
     let expresionRegular = /[a-zA-Z]+/.test(word)  
 
     if(expresionRegular){
@@ -111,8 +109,82 @@ let convertVocal = (word)=>{
     }
 }
 
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
-let word = prompt("Say the message you want to change")
-let newWord = word.replace(/[aeou]/gi,"i")
-alert(newWord)
+let game = ()=>{
+   let ramdonNumber = randomNumber(1,3)
+    alert("📄🪨✂️Lets play Scissor Paper and Rock 🍀🍀🍀")
+    let opcion = parseInt(prompt("Choose between \n 1: 📄paper \n 2: 🪨rock \n 3:✂️scissors "))
+    let driverChoose,scissors,rock,paper,messaje
+    let lost = 1
+    let won = 1
+    let tie = 1
+    if(!isNaN(opcion) && opcion >0 && opcion <=3){
+          // Taxi Driver choose
+        if(ramdonNumber === 1 ){
+            driverChoose = "The driver choose paper📄"
+            paper = 1
+        }
+        else if(ramdonNumber === 2){
+            driverChoose = "The driver choose rock🪨 "
+            rock =2
+        }   
+        else{
+            driverChoose = "The driver choose scissors✂️"
+            scissors =3
+        }
+   
+    }
+    else{
+        alert("Enter valid opcion")
+        return
+    } 
+   if(scissors === opcion || rock === opcion || paper == opcion){
+        messaje = "a tie"
+        tie = 2
+       
+    }
+    else if(paper === 1 && opcion ===2){
+        messaje = "You have lost"
+        lost = 2
+    }
+    else if(rock === 2 && opcion ===3){
+        messaje = "You have lost"
+        lost = 2
+    }
+    else if(scissors == 3 && opcion ===1) {
+        messaje = "You have lost"
+        lost = 2
+    }
+    else{
+        messaje = "You have won"
+        won = 2
+    }
+
+
+    if(opcion === 1) opcion= "you have choosed paper📄"; 
+    if(opcion === 2) opcion= "you have choosed rock 🪨"; 
+    if(opcion === 3) opcion= "you have choosed scissors✂️"; 
+
+    alert(`${driverChoose}, and ${opcion} `)
+    alert(`The result is ${messaje}`)
+
+    if(won > lost  && won > tie){
+        alert("You don't have to pay anything 😊")
+    }
+    else if(lost > won && lost > tie){
+        alert("Sorry man, you have to pay $300.000 😢")
+        characteristics.budget-=300000
+    }
+    else{
+        alert("Nothing happeen")
+    }
+
+}
+
+game()
+
+console.table(JSON.stringify(characteristics))
 
