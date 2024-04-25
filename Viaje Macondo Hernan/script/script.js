@@ -156,7 +156,7 @@ let game = ()=>{
     alert(word)
     alert("Hilderbrando proceed to traduce his words, and say")
     convertVocal(word)
-    alert("Taxi Driver:challingi icciptid ⚔️")
+    alert("Taxi Driver:chillingi icciptid ⚔️")
    let ramdonNumber = randomNumber(1,3)
     alert("📄🪨✂️Lets play Scissor Paper and Rock 🍀🍀🍀")
     
